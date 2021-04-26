@@ -3,30 +3,35 @@ package heronFormule;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Triangle;
+
 public class Main {
 
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Double xa, xb, xc, ya, yb, yc, pX, areaX, pY, areaY;
+		Triangle triangleA = new Triangle();
+		Triangle triangleB = new Triangle();
+		
+		Double pX, areaX, pY, areaY;
 		
 		System.out.println("Enter the measures of triangle X: ");
-		xa = sc.nextDouble();
-		xb = sc.nextDouble();
-		xc = sc.nextDouble();
+		triangleA.a = sc.nextDouble();
+		triangleA.b = sc.nextDouble();
+		triangleA.c = sc.nextDouble();
 
-		pX = (xa + xb + xc) / 2;
-		areaX = Math.sqrt(pX * (pX - xa) * (pX - xb) * (pX - xc));
+		pX = (triangleA.a + triangleA.b + triangleA.c) / 2;
+		areaX = Math.sqrt(pX * (pX - triangleA.a) * (pX - triangleA.b) * (pX - triangleA.c));
 		
 		
 		System.out.println("Enter the measures of triangle Y: ");
-		ya = sc.nextDouble();
-		yb = sc.nextDouble();
-		yc = sc.nextDouble();
+		triangleB.a = sc.nextDouble();
+		triangleB.b = sc.nextDouble();
+		triangleB.c = sc.nextDouble();
 
-		pY = (ya + yb + yc) / 2;
-		areaY = Math.sqrt(pY * (pY - ya) * (pY - yb) * (pY - yc));
+		pY = (triangleB.a + triangleB.b + triangleB.c) / 2;
+		areaY = Math.sqrt(pY * (pY - triangleB.a) * (pY - triangleB.b) * (pY - triangleB.c));
 		
 		System.out.printf("Triangle X area: %.4f\n", areaX);
 		System.out.printf("Triangle Y area: %.4f\n", areaY);
@@ -36,6 +41,8 @@ public class Main {
 		} else {
 			System.out.print("Larger area: Y");
 		}
+		
+		sc.close();
 	}
 
 }
