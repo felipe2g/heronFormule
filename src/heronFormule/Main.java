@@ -14,29 +14,21 @@ public class Main {
 		Triangle triangleA = new Triangle();
 		Triangle triangleB = new Triangle();
 		
-		Double pX, areaX, pY, areaY;
-		
 		System.out.println("Enter the measures of triangle X: ");
 		triangleA.a = sc.nextDouble();
 		triangleA.b = sc.nextDouble();
 		triangleA.c = sc.nextDouble();
-
-		pX = (triangleA.a + triangleA.b + triangleA.c) / 2;
-		areaX = Math.sqrt(pX * (pX - triangleA.a) * (pX - triangleA.b) * (pX - triangleA.c));
 		
 		
 		System.out.println("Enter the measures of triangle Y: ");
 		triangleB.a = sc.nextDouble();
 		triangleB.b = sc.nextDouble();
 		triangleB.c = sc.nextDouble();
-
-		pY = (triangleB.a + triangleB.b + triangleB.c) / 2;
-		areaY = Math.sqrt(pY * (pY - triangleB.a) * (pY - triangleB.b) * (pY - triangleB.c));
 		
-		System.out.printf("Triangle X area: %.4f\n", areaX);
-		System.out.printf("Triangle Y area: %.4f\n", areaY);
+		System.out.printf("Triangle X area: %.4f\n", triangleA.area());
+		System.out.printf("Triangle Y area: %.4f\n", triangleB.area());
 		
-		if(areaX > areaY) {
+		if(triangleA.area() > triangleB.area()) {
 			System.out.print("Larger area: X");
 		} else {
 			System.out.print("Larger area: Y");
